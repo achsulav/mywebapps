@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: your-app-name
+    runtime: python
+   buildCommand: "./build.sh" 
+    startCommand: "gunicorn portfolio_project.wsgi:application"
+    envVars:
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: "your-app.onrender.com"
+      - key: DATABASE_URL
+        value: "postgres://your-database-url"

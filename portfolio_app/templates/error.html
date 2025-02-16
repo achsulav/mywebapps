@@ -1,0 +1,126 @@
+<!-- Portfolio/portfolio_app/templates/error.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:(</title>
+    <link rel="stylesheet" href="{% static 'portfolio_app/css/styles.css' %}">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #e6d0d0;
+            font-family: Arial, sans-serif;
+            color: #ebebeb;
+        }
+        .error-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .error-container {
+            background-color: #352d2d;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .error-title {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .error-message {
+            font-family: monospace;
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .error-suggestions {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #c0bcbc;
+            text-align: center;
+        }
+        .button {
+            background-color: #50161ffa;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin-top: 5px;
+        }
+        .button:hover {
+            background-color: #132131;
+        }
+        .error-image-big {
+            width: 150px;  
+            height: auto;  
+            margin-right: 10px;  
+            display: flex;
+        }
+        .error-image-small {
+            width: 150px;  
+            height: auto;
+              
+             
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;  
+        }
+        .button-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-header">
+        <div class="image-container">
+            <img src="{% static 'images/hopeless.png' %}" alt="OOPS" class="error-image-big"> 
+        </div>
+    </div>
+    <div class="error-container">
+        <div class="error-title">Oops! Something went wrong.</div>
+        <div class="error-message">
+            {% if error_code %}
+                <p>Error Code: {{ error_code }}</p>
+            {% endif %}
+            <p>We're sorry,</p>
+            <p> the page you are looking for is not available.</p>
+        </div>
+        <div class="error-suggestions">
+            <p>Possible reasons for this error:</p>
+            <ul style="text-align: left; margin: 0 auto; padding: 0;">
+                <li>The page might have been removed or relocated.</li>
+                <li>There may be a typo in the URL you entered.</li>
+                <li>Server might be temporarily down.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="button-container">
+        <img src="{% static 'images/man.png' %}" alt="Side Image" class="error-image-small"> 
+        <a href="{% url 'home' %}" class="button">Return to Home</a>
+    </div>
+</body>
+</html>

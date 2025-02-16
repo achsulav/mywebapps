@@ -75,9 +75,13 @@ DATABASES = {
         'NAME': BASE_DIR / "db.sqlite3",
     }
 }
-database_url = os.environ.get("postgresql://testdb_j3a5_user:YL5Hj2Zz8WEL4viT7rAlG0Al7iNRSCcW@dpg-cumtobij1k6c73b3q3fg-a.oregon-postgres.render.com/testdb_j3a5")
-DATABASES["default"] = dj_database_url.parse(database_url)
 
+
+# Directly passing the database URL
+database_url = "postgresql://testdb_j3a5_user:YL5Hj2Zz8WEL4viT7rAlG0Al7iNRSCcW@dpg-cumtobij1k6c73b3q3fg-a.oregon-postgres.render.com/testdb_j3a5"
+
+# Parse the database URL and configure Django's DATABASES setting
+DATABASES["default"] = dj_database_url.parse(database_url)
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},

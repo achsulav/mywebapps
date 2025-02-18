@@ -15,14 +15,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'your-secret-key'
 DEBUG = False
 ALLOWED_HOSTS = ['*']
-STORAGES = {
-    "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",  # ✅ Local file storage
-    },
-    "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
-    },
-}
 
 # Installed apps
 INSTALLED_APPS = [
@@ -75,7 +67,7 @@ WSGI_APPLICATION = 'portfolio_project.wsgi.application'
 
 # Database (Using SQLite, change if needed)
 DATABASES = {
-    "default": dj_database_url.config(default=os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse('postgresql://testdb_j3a5_user:YL5Hj2Zz8WEL4viT7rAlG0Al7iNRSCcW@dpg-cumtobij1k6c73b3q3fg-a.oregon-postgres.render.com/testdb_j3a5')
 }
 
 

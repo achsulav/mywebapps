@@ -69,10 +69,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'portfolio_project.wsgi.application'
 
 # Database (Using SQLite, change if needed)
+database_url = os.environ.get("DATABASE_URL")
+DATABASES =["default"]: dj_database_url.parse('database_url')
 
-DATABASES = {
-    'default': dj_database_url.parse('postgresql://testdb_j3a5_user:YL5Hj2Zz8WEL4viT7rAlG0Al7iNRSCcW@dpg-cumtobij1k6c73b3q3fg-a.oregon-postgres.render.com/testdb_j3a5')
-}
 
 
 # Directly passing the database URL

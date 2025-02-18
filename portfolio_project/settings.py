@@ -3,7 +3,7 @@ import os
 from decouple import config
 from pathlib import Path
 from dotenv import load_dotenv  
-
+import dj_database_url
 
 # Load environment variables from a .env file
 load_dotenv()
@@ -69,11 +69,11 @@ WSGI_APPLICATION = 'portfolio_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql'
-        'NAME': config('testdb'),
-        'USER': config('testdb_j3a5'),
-        'Password': config('YL5Hj2Zz8WEL4viT7rAlG0Al7iNRSCcW')
-        'HOST': config('pg-cumtobij1k6c73b3q3fg-a.oregon-postgres.render.com')
-        'PORT':config('5432')
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'Password': os.environ.get('DB_PASSWORD')
+        'HOST': os.environ.get('DB_HOST')
+        'PORT':os.environ.get('DB_PORT')
   
 }
 }

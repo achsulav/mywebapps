@@ -69,11 +69,11 @@ WSGI_APPLICATION = 'portfolio_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql'
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'Password': config('DB_HOST')
-        'HOST': config('DB_HOST')
-        'PORT':config('DB_PORT')
+        'NAME': config('testdb'),
+        'USER': config('testdb_j3a5'),
+        'Password': config('YL5Hj2Zz8WEL4viT7rAlG0Al7iNRSCcW')
+        'HOST': config('pg-cumtobij1k6c73b3q3fg-a.oregon-postgres.render.com')
+        'PORT':config('5432')
   
 }
 }

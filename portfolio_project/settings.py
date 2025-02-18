@@ -1,6 +1,6 @@
 import os
-import dj_database_url
 
+from decouple import config
 from pathlib import Path
 from dotenv import load_dotenv  
 
@@ -65,13 +65,19 @@ TEMPLATES = [
 # WSGI application
 WSGI_APPLICATION = 'portfolio_project.wsgi.application'
 
-# Database (Using SQLite, change if needed)
+
 DATABASES = {
-    'default': dj_database_url.parse('postgresql://testdb_j3a5_user:YL5Hj2Zz8WEL4viT7rAlG0Al7iNRSCcW@dpg-cumtobij1k6c73b3q3fg-a.oregon-postgres.render.com/testdb_j3a5')
+    'default': {
+        'ENGINE':'django.db.backends.postgresql'
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'Password': config('DB_HOST')
+        'HOST': config('DB_HOST')
+        'PORT':config('DB_PORT')
+  
+}
 }
 
-
-# Directly passing the database URL
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},

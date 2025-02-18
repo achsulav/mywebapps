@@ -2,6 +2,11 @@ import os
 import dj_database_url
 
 from pathlib import Path
+from dotenv import load_dotenv  
+
+
+# Load environment variables from a .env file
+load_dotenv()
 
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -69,9 +74,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'portfolio_project.wsgi.application'
 
 # Database (Using SQLite, change if needed)
-database_url = os.environ.get("DATABASE_URL")
-DATABASES =["default"]: dj_database_url.parse('database_url')
-
+DATABASES = {
+    "default": dj_database_url.config(default=os.environ.get("DATABASE_URL"))
+}
 
 
 # Directly passing the database URL
